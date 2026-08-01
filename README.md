@@ -6,6 +6,8 @@
 
 ECLABS Launch, Brave ve Chrome için hızlı, minimal ve açık kaynak bir Manifest V3 yeni sekme uzantısıdır. Siteleri sayfalara bölmeden kategoriler altında listeler; tüm kullanıcı verileri cihazda kalır.
 
+> **ECLABS tarafından geliştirildi.** Diğer ECLABS ürünlerini ve çalışmalarını keşfetmek için [eclabs.tr](https://eclabs.tr) adresini ziyaret edin.
+
 ## Özellikler
 
 - Yoğun, çok sütunlu **Liste** görünümü ve favicon kullanan responsive **İkon** görünümü
@@ -117,3 +119,7 @@ Site verileri yalnızca `chrome.storage.local` içinde tutulur. Pexels araması 
 ## Lisans
 
 Bu proje [MIT Lisansı](LICENSE) altında yayımlanır. Pexels görselleri, fotoğrafçı ve Pexels bağlantısı ile birlikte gösterilir; görseller Pexels'in kendi kullanım koşullarına tabidir.
+
+---
+
+[ECLABS](https://eclabs.tr) tarafından geliştirildi.
