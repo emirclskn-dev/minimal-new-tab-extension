@@ -171,6 +171,9 @@ kbd { min-width: 22px; padding: 2px 6px; border: 1px solid var(--border); border
 .icon-button { width: 38px; }
 .icon-button:hover, .view-toggle:hover { background: var(--surface-hover); border-color: var(--border); }
 .icon-button:active, .view-toggle:active { transform: scale(0.96); }
+.actions-divider { width: 1px; height: 22px; margin: 0 2px; flex: 0 0 auto; background: var(--border); }
+.support-button { flex: 0 0 auto; color: var(--accent); text-decoration: none; }
+.support-button:hover { color: var(--accent-hover); background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, var(--border)); }
 .view-toggle { gap: 7px; padding: 0 11px; border-color: var(--border); background: var(--surface); font-size: 12px; font-weight: 650; }
 .view-toggle svg { width: 17px; }
 .grid-icon, .moon-icon { display: none; }
@@ -390,9 +393,13 @@ kbd { min-width: 22px; padding: 2px 6px; border: 1px solid var(--border); border
 }
 
 @media (max-width: 520px) {
+  .topbar { gap: 6px; padding-inline: 10px; }
   .actions { gap: 1px; }
+  .actions .icon-button, .actions .view-toggle { width: 34px; height: 36px; }
+  .actions-divider { margin-inline: 1px; }
+  .brand-mark { width: 28px; height: 28px; }
   .view-toggle span { display: none; }
-  .view-toggle { width: 38px; padding: 0; }
+  .view-toggle { padding: 0; }
   .categories { grid-template-columns: 1fr; }
   :root[data-view="icon"] .content { padding-inline: 12px; }
   .background-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
