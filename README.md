@@ -19,9 +19,13 @@ ECLABS Launch, Brave ve Chrome için hızlı, minimal ve açık kaynak bir Manif
 
 ## Ekran görüntüleri
 
-| Liste görünümü | İkon görünümü | Arka plan ayarları |
-| --- | --- | --- |
-| _Ekran görüntüsü eklenecek_ | _Ekran görüntüsü eklenecek_ | _Ekran görüntüsü eklenecek_ |
+### İkon görünümü
+
+![ECLABS Launch ikon görünümü](docs/screenshots/icon-view.png)
+
+### Arka plan seçici
+
+![ECLABS Launch düz renk ve Pexels arka plan seçici](docs/screenshots/background-picker.png)
 
 ## Yerel kurulum
 
