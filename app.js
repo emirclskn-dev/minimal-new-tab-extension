@@ -70,7 +70,6 @@ const els = {
   searchBox: document.querySelector("#search-box"),
   viewButton: document.querySelector("#view-button"),
   viewLabel: document.querySelector("#view-label"),
-  themeButton: document.querySelector("#theme-button"),
   settingsButton: document.querySelector("#settings-button"),
   backgroundButton: document.querySelector("#background-button"),
   addCategory: document.querySelector("#add-category-button"),
@@ -291,7 +290,6 @@ function applyPreferences() {
   els.viewLabel.textContent = state.view === "list" ? "Liste" : "İkon";
   const target = state.view === "list" ? "İkon" : "Liste";
   els.viewButton.setAttribute("aria-label", `${target} görünümüne geç`);
-  els.themeButton.setAttribute("aria-label", state.theme === "light" ? "Koyu temaya geç" : "Açık temaya geç");
 }
 
 function filteredCategories() {
@@ -643,12 +641,6 @@ async function toggleView() {
   await chrome.storage.local.set({ [VIEW_KEY]: state.view });
 }
 
-async function toggleTheme() {
-  state.theme = state.theme === "light" ? "dark" : "light";
-  applyPreferences();
-  await chrome.storage.local.set({ [THEME_KEY]: state.theme });
-}
-
 function openSettings() {
   els.searchVisible.checked = state.settings.searchVisible;
   const selectedSize = els.settingsForm.querySelector(`input[name="cardSize"][value="${state.settings.cardSize}"]`);
@@ -995,7 +987,6 @@ function bindGlobalEvents() {
   els.addCategory.addEventListener("click", () => openCategoryEditor());
   els.emptyAdd.addEventListener("click", () => openCategoryEditor());
   els.viewButton.addEventListener("click", toggleView);
-  els.themeButton.addEventListener("click", toggleTheme);
   els.settingsButton.addEventListener("click", openSettings);
   els.backgroundButton.addEventListener("click", openBackgroundSettings);
   els.settingsForm.addEventListener("submit", saveSettings);
