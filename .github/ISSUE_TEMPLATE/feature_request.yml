@@ -1,0 +1,28 @@
+name: Özellik önerisi
+description: ECLABS Launch için sade ve kapsamlı bir geliştirme önerin.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: İhtiyaç
+      description: Hangi kullanıcı problemini çözmek istiyorsunuz?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Önerilen çözüm
+      description: Mevcut minimal yapıyla nasıl uyum sağlayacağını açıklayın.
+    validations:
+      required: true
+  - type: checkboxes
+    id: principles
+    attributes:
+      label: Proje ilkeleri
+      options:
+        - label: Öneri analytics, reklam veya takip sistemi gerektirmiyor.
+          required: true
+        - label: Öneri gereksiz tarayıcı izni gerektirmiyor.
+          required: true

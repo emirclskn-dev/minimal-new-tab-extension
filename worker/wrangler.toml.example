@@ -1,0 +1,22 @@
+name = "eclabs-launch-pexels-proxy"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = true
+preview_urls = false
+send_metrics = false
+
+[vars]
+ALLOWED_ORIGINS = "chrome-extension://REPLACE_WITH_EXTENSION_ID,http://localhost:8787,http://127.0.0.1:8787"
+EXTENSION_ID = "REPLACE_WITH_EXTENSION_ID"
+
+[[ratelimits]]
+name = "SEARCH_RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 30
+  period = 60
+
+[observability]
+enabled = true
+head_sampling_rate = 0.1

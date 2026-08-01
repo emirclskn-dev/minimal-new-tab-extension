@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Yeni Sekme</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="background-layer" class="background-layer" aria-hidden="true"></div>
+    <a class="skip-link" href="#content">İçeriğe geç</a>
+
+    <header class="topbar">
+      <div class="brand" aria-label="ECLABS New Tab">
+        <img class="brand-mark" src="icons/icon-32.png" width="32" height="32" alt="">
+        <span class="brand-name">New Tab</span>
+      </div>
+
+      <label class="search" id="search-box" for="search-input">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+        <input id="search-input" type="search" placeholder="Sitelerde ara" autocomplete="off" spellcheck="false">
+        <kbd id="search-shortcut">/</kbd>
+      </label>
+
+      <nav class="actions" aria-label="Sayfa araçları">
+        <button class="icon-button" id="add-category-button" type="button" aria-label="Kategori ekle" title="Kategori ekle">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button class="icon-button" id="background-button" type="button" aria-label="Arka plan seç" title="Arka plan seç">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 16 4.5-4.5 3.5 3.5 2.5-2.5L20 18"/><path d="M16.5 8.5h.01"/></svg>
+        </button>
+        <button class="icon-button" id="theme-button" type="button" aria-label="Temayı değiştir" title="Temayı değiştir">
+          <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
+          <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.5 15.5Z"/></svg>
+        </button>
+        <button class="icon-button" id="settings-button" type="button" aria-label="Görünüm ayarları" title="Görünüm ayarları">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>
+        </button>
+        <button class="view-toggle" id="view-button" type="button" aria-label="İkon görünümüne geç" title="Görünümü değiştir (V)">
+          <svg class="list-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+          <svg class="grid-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+          <span id="view-label">Liste</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="content" class="content" tabindex="-1">
+      <div id="categories" class="categories" aria-live="polite"></div>
+      <section id="empty-state" class="empty-state" hidden>
+        <div class="empty-mark" aria-hidden="true">+</div>
+        <h1>İlk kategorini oluştur</h1>
+        <p>Bağlantılarını konuya göre düzenle; her şey yalnızca bu cihazda kalsın.</p>
+        <button class="primary-button" id="empty-add-button" type="button">Kategori oluştur</button>
+      </section>
+      <section id="no-results" class="empty-state compact" hidden>
+        <h1>Sonuç bulunamadı</h1>
+        <p>Başka bir site adı veya adresi dene.</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>© 2026 ECLABS</span>
+      <span aria-hidden="true">·</span>
+      <a href="https://eclabs.tr" target="_blank" rel="noopener noreferrer">eclabs.tr</a>
+      <span aria-hidden="true">·</span>
+      <span>MIT Lisansı</span>
+    </footer>
+
+    <aside id="background-attribution" class="background-attribution" aria-label="Arka plan fotoğrafı bilgisi" hidden>
+      <span>Fotoğraf:</span>
+      <a id="photographer-link" target="_blank" rel="noopener noreferrer"></a>
+      <span aria-hidden="true">·</span>
+      <a id="pexels-link" target="_blank" rel="noopener noreferrer">Pexels</a>
+    </aside>
+
+    <dialog id="editor-dialog" class="dialog">
+      <form id="editor-form" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow" id="dialog-eyebrow">Düzenle</p>
+            <h2 id="dialog-title">Yeni kategori</h2>
+          </div>
+          <button class="icon-button" id="dialog-close" type="button" aria-label="Pencereyi kapat">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div id="form-fields" class="form-fields"></div>
+        <p id="form-error" class="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="dialog-cancel" type="button">Vazgeç</button>
+          <button class="primary-button" id="dialog-submit" type="submit">Kaydet</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="confirm-dialog" class="dialog confirm-dialog">
+      <form method="dialog">
+        <p class="eyebrow">Silme işlemi</p>
+        <h2 id="confirm-title">Emin misin?</h2>
+        <p id="confirm-copy" class="confirm-copy"></p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="confirm-cancel" value="cancel">Vazgeç</button>
+          <button class="danger-button" id="confirm-delete" value="confirm">Sil</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="settings-dialog" class="dialog settings-dialog">
+      <form id="settings-form" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Kişiselleştir</p>
+            <h2>Görünüm ayarları</h2>
+          </div>
+          <button class="icon-button dialog-x" type="button" aria-label="Ayarları kapat">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+
+        <label class="setting-row" for="search-visible">
+          <span><strong>Arama çubuğu</strong><small>Yeni sekmede aramayı göster.</small></span>
+          <input class="switch-input" id="search-visible" name="searchVisible" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+
+        <fieldset class="setting-group">
+          <legend>İkon kartı boyutu</legend>
+          <div class="segmented-control">
+            <label><input type="radio" name="cardSize" value="small"><span>Kompakt</span></label>
+            <label><input type="radio" name="cardSize" value="medium"><span>Orta</span></label>
+            <label><input type="radio" name="cardSize" value="large"><span>Geniş</span></label>
+          </div>
+          <p>Yalnızca ikon görünümünü etkiler.</p>
+        </fieldset>
+
+        <div class="setting-group data-tools">
+          <span class="group-label">Veri araçları</span>
+          <div class="data-tool-grid">
+            <button class="secondary-button" id="settings-browser-import-button" type="button">Brave’den siteleri al</button>
+            <button class="secondary-button" id="settings-import-button" type="button">JSON / HTML içe aktar</button>
+            <button class="secondary-button" id="settings-export-button" type="button">JSON dışa aktar</button>
+          </div>
+          <p>Brave’den kaydedilmiş New Tab HTML dosyaları desteklenir.</p>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="secondary-button settings-cancel" type="button">Vazgeç</button>
+          <button class="primary-button" type="submit">Ayarları kaydet</button>
+        </div>
+        <div class="settings-license">
+          <span>© 2026 ECLABS</span>
+          <span aria-hidden="true">·</span>
+          <a href="https://eclabs.tr" target="_blank" rel="noopener noreferrer">eclabs.tr</a>
+          <span aria-hidden="true">·</span>
+          <span>MIT Lisansı</span>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="background-dialog" class="dialog background-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Kişiselleştir</p>
+            <h2>Arka plan seç</h2>
+          </div>
+          <button class="icon-button dialog-x" type="button" aria-label="Arka plan ayarlarını kapat">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <section class="background-settings" aria-labelledby="background-settings-title">
+          <div class="setting-group-heading">
+            <div>
+              <span class="group-label" id="background-settings-title">Pexels görselleri</span>
+              <p>Yatay bir görsel ara ve tek bir görsel seç.</p>
+            </div>
+            <button class="text-button danger-text" id="remove-background-button" type="button">Arka planı kaldır</button>
+          </div>
+          <div class="solid-background-setting">
+            <span class="group-label">Düz renk</span>
+            <div class="solid-background-row">
+              <div id="solid-backgrounds" class="solid-backgrounds" role="listbox" aria-label="Düz arka plan renkleri"></div>
+              <label class="custom-color" for="custom-background-color" title="Özel renk seç">
+                <input id="custom-background-color" type="color" value="#111310">
+                <span aria-hidden="true">+</span>
+                <span class="sr-only">Özel renk seç</span>
+              </label>
+            </div>
+          </div>
+          <div class="background-divider"><span>Pexels</span></div>
+          <div class="background-search-row">
+            <label class="compact-field" for="background-query">
+              <span>Görsel ara</span>
+              <input id="background-query" type="search" placeholder="Örn. dağ, mimari, gece" autocomplete="off" maxlength="80">
+            </label>
+            <button class="secondary-button" id="background-search-button" type="button">Ara</button>
+          </div>
+          <p id="background-search-status" class="background-search-status" role="status" aria-live="polite"></p>
+          <div id="background-results" class="background-results" role="listbox" aria-label="Pexels arama sonuçları"></div>
+        </section>
+      </form>
+    </dialog>
+
+    <dialog id="browser-import-dialog" class="dialog browser-import-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Yerel aktarım</p>
+            <h2>Brave’den siteleri al</h2>
+          </div>
+          <button class="icon-button dialog-x" type="button" aria-label="İçe aktarmayı kapat">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <p class="dialog-intro">Kaynak yalnızca bu işlem sırasında okunur. Siteler mevcut düzenin sonuna eklenir.</p>
+        <div class="import-sources">
+          <button class="source-button" id="import-top-sites" type="button">
+            <span class="source-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5"/></svg></span>
+            <span><strong>Sık ziyaret edilenler</strong><small>Brave’in en sık kullandığın siteler listesini al.</small></span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+          <button class="source-button" id="import-bookmarks" type="button">
+            <span class="source-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></span>
+            <span><strong>Yer imleri</strong><small>Klasörleri kategori olarak içe aktar.</small></span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+        <p class="import-note">Not: Brave’de elle oluşturulan özel Yeni Sekme kısayolları tarayıcı API’si tarafından paylaşılmaz; sık ziyaret edilenler ve yer imleri alınabilir.</p>
+        <p id="browser-import-error" class="form-error" role="alert"></p>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <input id="import-input" type="file" accept="application/json,text/html,.json,.html,.htm" hidden>
+    <script src="app.js"></script>
+  </body>
+</html>

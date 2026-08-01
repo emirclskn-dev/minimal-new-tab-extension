@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+.wrangler/
+node_modules/
+dist/
+*.crx
+*.pem
+secrets*.json
+worker/wrangler.toml

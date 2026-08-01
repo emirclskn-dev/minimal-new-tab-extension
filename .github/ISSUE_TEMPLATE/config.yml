@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Güvenlik açığı bildirimi
+    url: https://github.com/emirclskn-dev/eclabs-launch/security/advisories/new
+    about: Güvenlik açıklarını public issue yerine özel olarak bildirin.

@@ -1,0 +1,47 @@
+name: Hata bildirimi
+description: Yeniden üretilebilir bir ECLABS Launch hatasını bildirin.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Gizli anahtar, token, kişisel veri veya özel site adresi paylaşmayın.
+  - type: input
+    id: version
+    attributes:
+      label: ECLABS Launch sürümü
+      placeholder: "2.2.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Tarayıcı
+      options:
+        - Brave
+        - Chrome
+        - Diğer Chromium tabanlı tarayıcı
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Sorun
+      description: Beklenen ve gerçekleşen davranışı açıklayın.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Yeniden üretme adımları
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Ek bilgi
+      description: Gizli bilgi içermeyen hata metni veya ekran görüntüsü ekleyebilirsiniz.

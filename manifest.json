@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "ECLABS Launch",
+  "description": "Kategorilerle düzenlenen, hızlı ve tamamen yerel yeni sekme sayfası.",
+  "version": "2.2.0",
+  "permissions": ["storage", "favicon"],
+  "optional_permissions": ["topSites", "bookmarks"],
+  "optional_host_permissions": [
+    "https://*.workers.dev/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
