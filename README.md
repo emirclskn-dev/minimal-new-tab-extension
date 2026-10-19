@@ -78,7 +78,7 @@ npx wrangler@latest secret put PEXELS_API_KEY
 npx wrangler@latest deploy
 ```
 
-6. Self-host kullanıyorsanız dönen `https://...workers.dev` adresini `app.js` içindeki `PEXELS_PROXY_URL` sabitine yazın. Son kullanıcı arayüzünde Worker adresi değiştirilemez. Uzantı ağ iznini yalnızca `workers.dev` ve yerel geliştirme adresleri için isteyebilir.
+6. ECLABS sürümü proxy'yi özel alan adından kullanır: `https://launch-api.eclabs.tr` (`worker/wrangler.toml` → `routes`). Self-host kullanıyorsanız kendi adresinizi (`https://...workers.dev` ya da kendi alan adınız) `app.js` içindeki `PEXELS_PROXY_URL` sabitine yazın ve alan adınızı `manifest.json` → `optional_host_permissions` listesine ekleyin. Son kullanıcı arayüzünde Worker adresi değiştirilemez. Uzantı ağ iznini yalnızca bu listedeki adresler için isteyebilir.
 
 Yerel Worker geliştirmesinde, git tarafından yok sayılan `worker/.dev.vars` dosyasına yalnızca aşağıdaki değişkeni ekleyin ve ardından geliştirme sunucusunu başlatın:
 

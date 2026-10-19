@@ -5,7 +5,7 @@ const VIEW_KEY = "eclabsNewTabView";
 const THEME_KEY = "eclabsNewTabTheme";
 const SETTINGS_KEY = "eclabsNewTabSettings";
 const BACKGROUND_KEY = "eclabsBackground";
-const PEXELS_PROXY_URL = "https://eclabs-launch-pexels-proxy.eclabs-dev.workers.dev";
+const PEXELS_PROXY_URL = "https://launch-api.eclabs.tr";
 const SOLID_BACKGROUNDS = [
   { name: "Gece", color: "#080a09" },
   { name: "Orman", color: "#17382b" },

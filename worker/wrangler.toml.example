@@ -1,6 +1,9 @@
 name = "eclabs-launch-pexels-proxy"
 main = "src/index.js"
 compatibility_date = "2026-08-01"
+# Serve the proxy from your own domain when you have one (the ECLABS build uses launch-api.eclabs.tr; the first
+# deploy creates the DNS record), then set workers_dev = false once no installed extension calls workers.dev.
+# routes = [{ pattern = "launch-api.example.com", custom_domain = true }]
 workers_dev = true
 preview_urls = false
 send_metrics = false
