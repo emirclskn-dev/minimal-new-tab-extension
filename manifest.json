@@ -2,15 +2,12 @@
   "manifest_version": 3,
   "name": "ECLABS Launch",
   "description": "ECLABS tarafından geliştirilen, kategorilerle düzenlenen hızlı ve tamamen yerel yeni sekme sayfası.",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "homepage_url": "https://eclabs.tr",
   "permissions": ["storage", "favicon"],
   "optional_permissions": ["topSites", "bookmarks"],
   "optional_host_permissions": [
-    "https://launch-api.eclabs.tr/*",
-    "https://*.workers.dev/*",
-    "http://localhost/*",
-    "http://127.0.0.1/*"
+    "https://launch-api.eclabs.tr/*"
   ],
   "chrome_url_overrides": {
     "newtab": "newtab.html"
