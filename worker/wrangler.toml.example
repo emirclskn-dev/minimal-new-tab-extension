@@ -23,3 +23,9 @@ namespace_id = "1001"
 [observability]
 enabled = true
 head_sampling_rate = 0.1
+
+# KVKK: istek başına çağrı günlükleri (invocation logs) tutulmaz; sorgu dizesi
+# (arama metni) günlüklere düşmez. Panelde ayrıca redact_query_string açıktır.
+[observability.logs]
+enabled = true
+invocation_logs = false
